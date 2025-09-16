@@ -15,13 +15,17 @@ const useCreateUser = () => {
     const createUser = async (data: CreateUserInput) => {
         setLoading(true);
         setError(null);
-
         try {
             const response = await UserService.createUser(data);
             setLoading(false);
             return response;
-        } catch (error: any) {
-            setError(error.message || "Erro desconhecido");
+        } catch (err: any) {
+            setError(err.message || "Erro desconhecido");
+            setLoading(false);
+            throw error;
         }
     }
+    return { createUser, loading, error }
 }
+
+export default useCreateUser;

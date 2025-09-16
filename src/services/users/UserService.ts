@@ -4,7 +4,7 @@ interface CreateUserDTO {
     username: string,
     email: string,
     password: string,
-    bio: string | null
+    bio?: string | null;
 }
 
 class UserService {
