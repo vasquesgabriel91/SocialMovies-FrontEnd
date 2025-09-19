@@ -1,4 +1,4 @@
-import api from "../../api/users/user"
+import api from "@/api/users/user"
 
 interface CreateUserDTO {
     username: string,
