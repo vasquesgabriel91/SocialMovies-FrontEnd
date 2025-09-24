@@ -1,5 +1,5 @@
     import { useState } from "react";
-    import UserService from "@/services/users/UserService";
+    import UserService from "@/services/user/UserService";
 
     interface CreateUserInput {
         username: string;

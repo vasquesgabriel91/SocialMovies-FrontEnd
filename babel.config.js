@@ -6,18 +6,9 @@ module.exports = function (api) {
       [
         "module:react-native-dotenv",
         {
+          envName: "APP_ENV",
           moduleName: "@env",
-          path: ".env",
-          allowUndefined: true,
-        },
-      ],
-      [
-        "module-resolver",
-        {
-          root: ["./src"],
-          alias: {
-            "@": "./src",
-          },
+          path: ".env"
         },
       ],
     ],
