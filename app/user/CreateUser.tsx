@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import InputField from "@/components/inputField";
 import CustomButton from "@/components/user/CustomButton";
 import useCreateUser from "@/hooks/user/user";
-import { View, Text, Alert, ScrollView, StyleSheet } from "react-native";
+import { View, Text, Alert, ScrollView, StyleSheet, ImageBackground } from "react-native";
 
 const CreateUserScreen: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -23,14 +23,19 @@ const CreateUserScreen: React.FC = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Criar Usuário</Text>
-      <InputField label="Username" value={username} onChangeText={setUsername} placeholder="Digite o username" />
-      <InputField label="Email" value={email} onChangeText={setEmail} placeholder="Digite o email" />
-      <InputField label="Senha" value={password} onChangeText={setPassword} placeholder="Digite a senha" secureTextEntry />
+    <ImageBackground source={require("../../assets/background.jpg")} style={{ flex: 1 }} blurRadius={5}>
+      <ScrollView contentContainerStyle={styles.container}>
 
-      <CustomButton title={loading ? "Criando..." : "Criar Usuário"} onPress={handleSubmit} disabled={loading} />
-    </ScrollView>
+        <Text style={styles.title}>Criar Usuário</Text>
+        <InputField label="Username" value={username} onChangeText={setUsername} placeholder="Digite o username" />
+        <InputField label="Email" value={email} onChangeText={setEmail} placeholder="Digite o email" />
+        <InputField label="Senha" value={password} onChangeText={setPassword} placeholder="Digite a senha" secureTextEntry />
+
+        <CustomButton title={loading ? "Criando..." : "Criar Usuário"} onPress={handleSubmit} disabled={loading} />
+
+      </ScrollView>
+    </ImageBackground>
+
   );
 };
 
