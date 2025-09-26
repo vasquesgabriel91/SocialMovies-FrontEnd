@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InputField from "@/components/inputField";
 import CustomButton from "@/components/user/CustomButton";
 import useCreateUser from "@/hooks/user/user";
+import styles from "./style";
 import { View, Text, Alert, ScrollView, StyleSheet, ImageBackground } from "react-native";
 
 const CreateUserScreen: React.FC = () => {
@@ -25,23 +26,19 @@ const CreateUserScreen: React.FC = () => {
   return (
     <ImageBackground source={require("../../assets/background.jpg")} style={{ flex: 1 }} blurRadius={5}>
       <ScrollView contentContainerStyle={styles.container}>
-
-        <Text style={styles.title}>Criar Usuário</Text>
-        <InputField label="Username" value={username} onChangeText={setUsername} placeholder="Digite o username" />
-        <InputField label="Email" value={email} onChangeText={setEmail} placeholder="Digite o email" />
-        <InputField label="Senha" value={password} onChangeText={setPassword} placeholder="Digite a senha" secureTextEntry />
-
-        <CustomButton title={loading ? "Criando..." : "Criar Usuário"} onPress={handleSubmit} disabled={loading} />
-
+        <View style={styles.topBorderContainer}>
+          <Text style={styles.title}>Criar Usuário</Text>
+          <InputField label="Username" value={username} onChangeText={setUsername} placeholder="Digite o username" />
+          <InputField label="Email" value={email} onChangeText={setEmail} placeholder="Digite o email" />
+          <InputField label="Senha" value={password} onChangeText={setPassword} placeholder="Digite a senha" secureTextEntry />
+          <CustomButton title={loading ? "Criando..." : "Criar Usuário"} onPress={handleSubmit} disabled={loading} />
+        </View>
       </ScrollView>
     </ImageBackground>
 
   );
 };
 
-const styles = StyleSheet.create({
-  container: { padding: 20, justifyContent: "center" },
-  title: { fontSize: 24, marginBottom: 20, fontWeight: "bold", textAlign: "center" },
-});
+
 
 export default CreateUserScreen;
